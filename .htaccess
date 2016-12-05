@@ -1,0 +1,13 @@
+#Options +FollowSymLinks
+#RewriteEngine On
+
+
+#RewriteCond %{REQUEST_FILENAME} !-f
+#RewriteCond %{REQUEST_FILENAME} !-d
+
+#RewriteRule ^([a-zA-Z0-9]+)$ index.php?pages=$1 [NC,QSA,L]
+
+
+#RewriteRule ^([0-9a-zA-Z-_]+)-([0-9]+).root$ view.php?seo_hood=$1&id=$2 [NC,L,QSA]
+
+#menu cağirma ve idye göre veri cekip sayfalama yapıyor..
