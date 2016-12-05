@@ -122,7 +122,7 @@ require "settings.php";
 
         $pages = $_GET ['pages'];
 
-        if ( $pages == '' || $pages == $settings) {
+        if ( $pages == '' || $pages == $settings || $pages =='index') {
             ?>
             <title>root@radmin | Welcome</title>
                 <section class="main container">
