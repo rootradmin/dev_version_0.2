@@ -56,7 +56,7 @@ require "settings.php";
             <div class="container">
                 <div class="logo">
                     <center>
-                        <a href="index.php">
+                        <a href="<?php echo $settings;?>">
                             <img src="img/anka.jpg"><br>
                         </a>
                     </center>
@@ -107,24 +107,24 @@ require "settings.php";
                 echo "<center> <div class='entry-content' id='info' align='center'><p class='noline'>$article</p></div></center>";
 
 
-                    //ETİKET ALANI START
-                echo "<footer><ul  class='tags seven columns'>";
-                            $kelimeler = explode(',', $tags);//virgüle göre parçalandı.
+                     //ETİKET ALANI START
+                        echo "<footer><ul  class='tags seven columns'>";
+                                    $kelimeler = explode(',', $tags);//virgüle göre parçalandı.
 
-                            foreach ($kelimeler as $anahtar=>$deger)//ayrılan kelimeleri tek tek bir diziye atandı.
-                            {
-                                $dizi[$i]=$deger;//dizi
-                                $i++;            //dizi değeri arttırıldı
-                            }
+                                    foreach ($kelimeler as $anahtar=>$deger)//ayrılan kelimeleri tek tek bir diziye atandı.
+                                    {
+                                        $dizi[$i]=$deger;//dizi
+                                        $i++;            //dizi değeri arttırıldı
+                                    }
 
-                            $yeni=$dizi;//yinelenen kelimeler geldi
+                                    $yeni=$dizi;//yinelenen kelimeler geldi
 
-                            foreach ($yeni as $liste)//yeni kelimeler dizisini ekrana yazdırma
-                            {
-                                echo    "  <li><a href=etiket/$liste class='tag'>$liste</a></li>      ";
-                            }
-                    //ETİKET ALANI FINISH
-                echo "</ul></footer>";
+                                    foreach ($yeni as $liste)//yeni kelimeler dizisini ekrana yazdırma
+                                    {
+                                        echo    "  <li><a href=etiket/$liste class='tag'>$liste</a></li>      ";
+                                    }
+                        echo "</ul></footer>";
+                     //ETİKET ALANI FINISH
                 ?>
                        <!--Disqus Yorum Penceresi Start-->
                             <div class='entry-content' id='info' align='center'>
@@ -164,7 +164,7 @@ require "settings.php";
     <div class="inner">
         <div class="container">
             <div class="copyright">
-                <span class="sub">© Copyright 2015 <a href="#">Mukadder Bahadır</a> - All Rights Reserved</span>
+                <span class="sub">© Copyright 2015 <a href="#">root@radmin</a> - All Rights Reserved</span>
             </div>
             <nav class="languages" role="navigation">
                 <ul>

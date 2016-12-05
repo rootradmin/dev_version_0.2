@@ -7,7 +7,7 @@
     require "connect.php";
 
 ?>
-<meta charset="utf-8">
+<meta charset="utf-8" xmlns="http://www.w3.org/1999/html">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <title> root@radmin | Projects</title>
 <meta name="description" content="">
@@ -56,11 +56,12 @@
                 </div>
                     <div class="six columns">
                         <p>
-                            <H1>Proje Hakkında</H1>
-                               <h5>PROJE ADI : <?php echo $project_name; ?><br>
-                                YAPIM SÜRESİ: <?php echo $time_limit;?> <br>
-                                AMACI : <?php echo $goal;?><br>
-                                <a href="<?php echo $url;?>">Projeyi Gör</a></h5>
+                                <H1>Proje Hakkında</H1>
+                                <option>PROJE ADI : </option> <b> <?php echo $project_name; ?></b><br>
+                                <option>AMACI :</option> <b><?php echo $goal;?></b><br>
+                                <option>YAPIM SÜRESİ :</option>    <b> <?php echo $time_limit;?></b> <br>
+
+                                <b><a class="noline" href="<?php echo $url;?>">Projeyi Gör</a></b></p>
                         </p>
                     </div><hr>
             </div>

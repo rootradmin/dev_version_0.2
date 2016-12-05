@@ -185,7 +185,7 @@ require "settings.php";
         <div class="inner">
             <div class="container">
                 <div class="copyright">
-                    <span class="sub">© Copyright 2015 <a href="#">Mukadder Bahadır</a> - All Rights Reserved</span>
+                    <span class="sub">© Copyright 2015 <a href="#">root@radmin</a> - All Rights Reserved</span>
                 </div>
                 <nav class="languages" role="navigation">
                     <ul>
