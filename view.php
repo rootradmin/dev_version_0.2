@@ -12,7 +12,7 @@ require "settings.php";
 
 <link href='http://fonts.googleapis.com/css?family=Raleway:400,600,700,800' rel='stylesheet' type='text/css'>
 <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic" rel="stylesheet" type="text/css">
-<link rel="stylesheet" href="./css/styles.css">
+<link rel="stylesheet" href="css/styles.css">
 <link rel="shortcut icon" href="img/anka.jpg"/>
 <!--CKEditor codesnipper plugin colors start-->
 <link rel="stylesheet" href="ckeditor/plugins/codesnippet/lib/highlight/styles/monokai.css">
@@ -99,23 +99,47 @@ require "settings.php";
 
                 $hood = $query ['hood'];
                 $article = $query['article'];
+                $tags = $query['tags'];
             
                 echo "<title>".$hood."</title>";
                 echo "<br><article class='article container'>";
                 echo "<h3 align='center'> <a>$hood</a> </h3>";
-                echo "<center> <div class='column' align='center'><p class='noline'>$article</p></div></center>";
+                echo "<center> <div class='entry-content' id='info' align='center'><p class='noline'>$article</p></div></center>";
 
+
+                    //ETİKET ALANI START
+                echo "<footer><ul  class='tags seven columns'>";
+                            $kelimeler = explode(',', $tags);//virgüle göre parçalandı.
+
+                            foreach ($kelimeler as $anahtar=>$deger)//ayrılan kelimeleri tek tek bir diziye atandı.
+                            {
+                                $dizi[$i]=$deger;//dizi
+                                $i++;            //dizi değeri arttırıldı
+                            }
+
+                            $yeni=$dizi;//yinelenen kelimeler geldi
+
+                            foreach ($yeni as $liste)//yeni kelimeler dizisini ekrana yazdırma
+                            {
+                                echo    "  <li><a href=etiket/$liste class='tag'>$liste</a></li>      ";
+                            }
+                    //ETİKET ALANI FINISH
+                echo "</ul></footer>";
                 ?>
-                    <div id="disqus_thread"></div>
-                    <script>
-                        (function() { // DON'T EDIT BELOW THIS LINE
-                            var d = document, s = d.createElement('script');
-                            s.src = '//http-rootradmin-xyz.disqus.com/embed.js';
-                            s.setAttribute('data-timestamp', +new Date());
-                            (d.head || d.body).appendChild(s);
-                        })();
-                    </script>
-                    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                       <!--Disqus Yorum Penceresi Start-->
+                            <div class='entry-content' id='info' align='center'>
+                                <div id="disqus_thread"></div>
+                                <script>
+                                    (function() { // DON'T EDIT BELOW THIS LINE
+                                        var d = document, s = d.createElement('script');
+                                        s.src = '//http-rootradmin-xyz.disqus.com/embed.js';
+                                        s.setAttribute('data-timestamp', +new Date());
+                                        (d.head || d.body).appendChild(s);
+                                    })();
+                                </script>
+                                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+                            </div>
+                      <!--Disqus Yorum Penceresi Finish-->
                 </article>
 
             <?php

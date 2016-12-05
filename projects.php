@@ -34,8 +34,6 @@
     for ($number = 0; $number <= $sonuc; $number++)
     {
         $num = 1 ;
-
-
     ?>
 
             <div class="row" align="center">

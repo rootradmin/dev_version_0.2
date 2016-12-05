@@ -158,7 +158,7 @@ require "settings.php";
                                     </header>
 
                                     <div class="entry-content" id="info" align="center">
-                                        <p><?php echo $article; ?></p>
+                                        <p><?php echo $article;?></p>
                                     </div>
 
                                 </article>
