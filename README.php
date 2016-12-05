@@ -7,6 +7,7 @@
  **projects bi bak  image opacity ayarı yap %% üzerine url linkini ver
  ** User date topıc=konu iconslarını ayarla
  *** disqus
+ ***paylaş butonlarını ekle
 
 
 -->
