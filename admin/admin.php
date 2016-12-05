@@ -21,29 +21,26 @@
             Session_start();
             $user = $_SESSION['user'];
                     if ($user)
-                    {?><br><br>
+            {           ?><br><br>
 
-            <section class="nav sub-page">
+                        <section class="nav sub-page">
 
-                    <ul style="background-color: 	transparent;">
+                                <ul style="background-color: 	transparent;">
 
-                        <li><a href="admin.php">Anamenu</a></li>
-                        <li><a href="admin.php?selection=makale">MAKALE</a></li>
-                        <li><a href="admin.php?selection=proje">PROJE</a></li>
-                        <li><a href="logout.php">ÇIKIŞ</a></li>
-                    </ul>
+                                    <li><a href="admin.php">Anamenu</a></li>
+                                    <li><a href="admin.php?selection=makale">MAKALE</a></li>
+                                    <li><a href="admin.php?selection=proje">PROJE</a></li>
+                                    <li><a href="logout.php">ÇIKIŞ</a></li>
+                                </ul>
 
-
-
-                   </section>
-
-
-
+                        </section>
 
                         <?php
                         //Makale değişkenleri
+                        $id = mysql_real_escape_string($_POST['id']);
                         $hood = mysql_real_escape_string($_POST ['hood']);
                         $article = mysql_real_escape_string($_POST ['article']);
+                        $tags = mysql_real_escape_string($_POST['tags']);
                         $upload = mysql_real_escape_string($_POST ["upload"]);
                         //proje değişkenleri
                         $project_img = $_POST['project_img'];
@@ -74,7 +71,7 @@
                                 echo "<a style='color: whitesmoke'>Makale Ayrıntılarında Boş Alan Bıraktınız !</a>";
                             }else{
                                 // echo "<option>butona basıldı</option>";
-                                $query = mysql_query("insert into articles (seo_hood,hood,article) values ('$seo_url','$hood','$article')  ");
+                                $query = mysql_query("insert into articles (seo_hood,hood,article,tags) values ('$seo_url','$hood','$article','$tags')  ");
 
                                 echo        "<a style='color: whitesmoke'>Makale Kaydedildi!</a>";
 
@@ -120,7 +117,9 @@
                                     <br>
                                     <textarea name="article" class="ckeditor"  cols="30" rows="10"></textarea>
                                     <br>
-                                    <input type="submit" name="upload"  value="Gönder" class="btn btn-primary" style="color: whitesmoke"><br><br>
+                                    <input  style="color:Red;" name="tags" class="twelve columns" type="text" placeholder="Etiket Ekle (örğn: php,java,jquery)">
+                                    <br><br>
+                                    <input type="submit" name="upload"  value="Gönder" class="btn btn-primary" style="border-color: black;color: black"><br><br>
                                     <!--ARTICLES UPLOAD START -->
                                 </form>
                             </center>
@@ -138,7 +137,7 @@
                                             <input  name="goal" class="eight columns" type="text" placeholder="Proje Amacı">
                                             <input  name="url" class="eight columns" type="text" value="http://" placeholder="Proje Url">
                                             <input  name="project_img" class="eight columns" type="file"  style="color: whitesmoke" ><br>
-                                            <input type="submit" name="projects_upload"  value="Proje Ekle" class="eight columns  btn btn-primary" style="color: whitesmoke">
+                                            <input type="submit" name="projects_upload"  value="Proje Ekle" class="eight columns  btn btn-primary" style="border-color: black;color:black">
                                         </div>
                                         <!--PROJECTS UPLOAD FİNİSH-->
                                     </form>
@@ -150,37 +149,49 @@
                             }?>
                         </section>
             <?php
-                    }else{
+            }else{
                         echo   "<div style='color: whitesmoke'>Giriş Yapmadınız.  ";
                         header("refresh:1;url= index.php");
                         die('2 Saniye Sonra Anasayfaya Gideceksiniz. Bu Süreyi Beklememek İçin
                                      <a href="index.php">Buraya Tıklayınız !</a></div>');
                         header("refresh:1;url= index.php");
-                    }
+            }
             ?>
 
-        <script type="application/javascript" src="ckeditor/ckeditor.js"></script>
+            <script type="application/javascript" src="ckeditor/ckeditor.js"></script>
 
 
             <div class="row" align="center" >
 
                     <div class="three columns column" style="background-color:#800080">
-                        <h2>Yazı : 88</h2>
+                        <h2>Yazı :
+
+                            <?php
+                            $query = mysql_query("SELECT COUNT(*) FROM articles"); //projects tablosundaki bütün alan sayısı
+                            $say = mysql_fetch_array($query);
+                            $sonuc = $say['0'];
+                            echo $sonuc;
+                            ?>
+
+                        </h2> <!--Toplam  Yazı-->
                     </div>
 
                     <div class="three columns column" style="background-color: 	#008000">
-                        <h2>Proje : 15</h2>
+                        <h2>Proje Sayısı :
+                            <?php
+                            $query = mysql_query("SELECT COUNT(*) FROM projects"); //projects tablosundaki bütün alan sayısı
+                            $say = mysql_fetch_array($query);
+                            $sonuc = $say['0'];
+                            echo $sonuc;
+                            ?>
+                        </h2><!--Toplam  Proje-->
                     </div>
+
                     <div class="three columns column" style="background-color:#FFD700">
                         <h2>Okunma : 86</h2>
                     </div>
                     <div class="three columns column" style="background-color: #008080">
-                        <h2>Yorum : <script id="dsq-count-scr" src="//http-rootradmin-xyz.disqus.com/count.js" async></script></h2>
+                        <h2>Yorum : 485</h2>
                     </div>
-
             </div>
-
-
-
-
 </body>

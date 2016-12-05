@@ -20,55 +20,55 @@
 
     <section class="container">
 
-        <p align="center">Kahve ve sigara ile bilgisayar başında geçirdiğim anlardan geriye ve Özgür Yazılıma kendi çapımda bir şeyler bırakmaya çalışıyorum öğrendikçe deniyorum.Projelerimi aşağıda görebilirsin.
-            <i class="fa fa-github" aria-hidden="true"></i><a href="https://github.com/rootradmin">Github'da beni bul !</a>
-        </p>
+            <p align="center">Kahve ve sigara ile bilgisayar başında geçirdiğim anlardan geriye ve Özgür Yazılıma kendi çapımda bir şeyler bırakmaya çalışıyorum öğrendikçe deniyorum.Projelerimi aşağıda görebilirsin.
+                <i class="fa fa-github" aria-hidden="true"></i><a href="https://github.com/rootradmin">Github'da beni bul !</a>
+            </p>
 
-    <?php
-    $query = mysql_query("SELECT COUNT(*) FROM projects"); //projects tablosundaki bütün alan sayısı
+            <?php
+            $query = mysql_query("SELECT COUNT(*) FROM projects"); //projects tablosundaki bütün alan sayısı
 
-    $say = mysql_fetch_array($query);
+            $say = mysql_fetch_array($query);
 
-    $sonuc = $say['0'] - 1;
+            $sonuc = $say['0'] - 1;
 
-    for ($number = 0; $number <= $sonuc; $number++)
-    {
-        $num = 1 ;
-    ?>
+            for ($number = 0; $number <= $sonuc; $number++)
+            {
+                $num = 1 ;
+            ?>
+                    <div class="row" align="center">
+                        <?php
 
-            <div class="row" align="center">
-                <?php
+                        $query = mysql_query("select * from projects order by id DESC limit $number,$num");
+                        while ($come = mysql_fetch_assoc($query)){
 
-                $query = mysql_query("select * from projects order by id DESC limit $number,$num");
-                while ($come = mysql_fetch_assoc($query)){
+                            $project_img = $come['project_img'];
+                            $project_name = $come['project_name'];
+                            $time_limit = $come['time_limit'];
+                            $goal = $come['goal'];
+                            $url = $come['url'];
+                        }
+                        ?>
+                        <!--Proje Alanı Start-->
+                                <div class="six columns">
+                                    <br>
+                                    <img src="<?php echo $project_img;?>">
+                                </div>
+                                <div class="six columns">
+                                    <p>
+                                            <H1>Proje Hakkında</H1>
+                                            <option>PROJE ADI : </option> <h5> <?php echo $project_name; ?></h5>
+                                            <option>AMACI :</option> <h5><?php echo $goal;?></h5>
+                                            <option>YAPIM SÜRESİ:</option>    <h5> <?php echo $time_limit;?></h5>
 
-                    $project_img = $come['project_img'];
-                    $project_name = $come['project_name'];
-                    $time_limit = $come['time_limit'];
-                    $goal = $come['goal'];
-                    $url = $come['url'];
-                }
-                ?>
-
-                <div class="six columns">
-
-                <br>    <img src="<?php echo $project_img;?>">
-                </div>
-                    <div class="six columns">
-                        <p>
-                                <H1>Proje Hakkında</H1>
-                                <option>PROJE ADI : </option> <b> <?php echo $project_name; ?></b><br>
-                                <option>AMACI :</option> <b><?php echo $goal;?></b><br>
-                                <option>YAPIM SÜRESİ :</option>    <b> <?php echo $time_limit;?></b> <br>
-
-                                <b><a class="noline" href="<?php echo $url;?>">Projeyi Gör</a></b></p>
-                        </p>
-                    </div><hr>
-            </div>
-<?php
-    }
-?>
-
+                                            <h5><a class="noline" href="<?php echo $url;?>">Projeyi Gör</a></h5></p>
+                                    </p>
+                                </div>
+                                <hr>
+                        <!--Proje Alanı Finish-->
+                    </div>
+              <?php
+            }
+             ?>
     </section>
 
 
