@@ -3,6 +3,7 @@
     error_reporting(0);
     header('Content-Type: text/html; charset=utf-8');
     require "../connect.php";
+    require "deneme.php";
     ?>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
