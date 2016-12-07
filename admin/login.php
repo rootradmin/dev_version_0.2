@@ -20,7 +20,8 @@ require "../connect.php";
                 session_start();
 
                 $user = $_POST['user'];
-                $pass = $_POST ['pass'];
+                $userpass = $_POST ['pass'];
+                $pass = md5($userpass);
 
                 if ($user && $pass){
 

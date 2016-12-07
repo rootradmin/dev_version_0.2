@@ -12,4 +12,8 @@
 
     **yazar ekleme ,yönetici izni verilirse yayınlama düzetlme update delete etme ayarları yapılacak
 
+    **yazarları güncellet sil  bunu büyük bir containerde yap !!
+
+    ( if güncelleye basıldıysa yeni bir input alanı açılsın)
+
 -->
