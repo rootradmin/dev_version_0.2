@@ -98,12 +98,10 @@ require "settings.php";
                         <li><a href="<?php echo $settings;?>projects">PROJELER</a></li>
                         <li><a href="<?php echo $settings;?>about">KİMİM ?</a></li>
                         <li><a href="<?php echo $settings;?>contact">İLETİŞİM</a></li>
-
                     </ul>
                 </nav>
             </section>
             <!--Menü navbar finish-->
-
     <?php
          //Seo harf dönüşümü için function
         function seo($s) {
@@ -119,7 +117,6 @@ require "settings.php";
             $s = trim($s, '-');
             return $s;
         }
-
         $pages = $_GET ['pages'];
 
         if ( $pages == '' || $pages == $settings || $pages =='index') {
@@ -130,11 +127,9 @@ require "settings.php";
                     <?php
                         //Kaç yazı gösterilecek//
                         for ($number = 0; $number <= 3; $number++)
-                        {
-                                /**İD'ye değer atama start**/
+                        {       /**İD'ye değer atama start**/
                                 $num = "1";
                                 /**İD'ye değer atama finish**/
-
                                 $query = mysql_query("select * from articles order by id DESC limit $number,$num");
                                 if (mysql_num_rows($query)) {
                                     while ($come = mysql_fetch_array($query)) {
@@ -156,16 +151,13 @@ require "settings.php";
                                             <div class="socbtn"></div>
                                         </div>
                                     </header>
-
                                     <div class="entry-content" id="info" align="center">
                                         <p><?php echo $article;?></p>
                                     </div>
-
                                 </article>
                             <?php
                         }
                     ?>       <!-- İçerik Yazısı 1 bitti -->
-
                 </section>
             <?php
         }

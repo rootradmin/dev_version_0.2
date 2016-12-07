@@ -73,7 +73,6 @@
                                 $query = mysql_query("insert into articles (seo_hood,hood,article,tags) values ('$seo_url','$hood','$article','$tags')  ");
 
                                 echo        "<a style='color: whitesmoke'>Makale Kaydedildi!</a>";
-
                             }
                         }
                         if ($projects_upload) // project insert
@@ -99,12 +98,10 @@
                             }
                         }
                          ?>
-
                         <section class="row container">
                             <?php
                             if (isset($_GET["selection"]))
                             {
-
                             if ($_GET["selection"]=="makale")
                             {
                             ?>
