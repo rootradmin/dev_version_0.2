@@ -33,7 +33,7 @@ require "../connect.php";
                             $_SESSION['user'] = $user ;
 
                             echo "<center><p><h4 style='color:whitesmoke;'>Başarılı Giriş !</h4></p> ";
-                            header("refresh:1;url=admin.php");
+                            header("refresh:1;url=admin.php?selection=index");
                             die('<p><h4 style="color:whitesmoke;">Birazdan Yönetim Paneline Gideceksiniz. Bu Süreyi beklememek İçin
                                              <a href="admin.php">Buraya Tıklayınız !</a></h4></p></center>');
 

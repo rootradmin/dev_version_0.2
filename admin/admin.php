@@ -26,9 +26,10 @@
 
                                 <ul style="background-color: 	transparent;">
 
-                                    <li><a href="admin.php">Anamenu</a></li>
+                                    <li><a href="admin.php?selection=index">Anamenu</a></li>
                                     <li><a href="admin.php?selection=makale">MAKALE</a></li>
                                     <li><a href="admin.php?selection=proje">PROJE</a></li>
+                                    <li><a href="admin.php?selection=author">Yazar Yönetimi</a></li>
                                     <li><a href="logout.php">ÇIKIŞ</a></li>
                                 </ul>
 
@@ -100,49 +101,93 @@
                          ?>
                         <section class="row container">
                             <?php
-                            if (isset($_GET["selection"]))
-                            {
-                            if ($_GET["selection"]=="makale")
-                            {
-                            ?>
-                            <center>
-                                <form action="" method="post" enctype="multipart/form-data">
-                                    <!--ARTICLES UPLOAD START -->
-                                    <input  name="hood" class="twelve columns" type="text" placeholder="Başlık Yazınız">
-                                    <br>
-                                    <br>
-                                    <textarea name="article" class="ckeditor"  cols="30" rows="10"></textarea>
-                                    <br>
-                                    <input  style="color:Red;" name="tags" class="twelve columns" type="text" placeholder="Etiket Ekle (örğn: php,java,jquery)">
-                                    <br><br>
-                                    <input type="submit" name="upload"  value="Gönder" class="btn btn-primary" style="border-color: black;color: black"><br><br>
-                                    <!--ARTICLES UPLOAD START -->
-                                </form>
-                            </center>
-                            <?php
-                            }
-                            else if ($_GET["selection"]=="proje")
-                            {?>
+                                if (isset($_GET["selection"]))
+                                {  if ($_GET["selection"]=="index") //anasayfa indexi
+                                {
+                                    ?>
 
+                                    <!--Root İndex Page Start-->
+                                    <!--Database Durumu START-->
+                                    <div class="row"align="center">
+
+                                            <div class="four columns column" style="background-color:#800080" align="center">
+                                                <h2>Tüm Yazılar :
+
+                                                    <?php
+                                                    $query = mysql_query("SELECT COUNT(*) FROM articles"); //projects tablosundaki bütün alan sayısı
+                                                    $say = mysql_fetch_array($query);
+                                                    $sonuc = $say['0'];
+                                                    echo $sonuc;
+                                                    ?>
+
+                                                </h2> <!--Toplam  Yazı-->
+                                            </div>
+
+                                            <div class="four columns column" style="background-color: 	#008000" align="center">
+                                                <h2>Tüm Projeler:
+                                                    <?php
+                                                    $query = mysql_query("SELECT COUNT(*) FROM projects"); //projects tablosundaki bütün alan sayısı
+                                                    $say = mysql_fetch_array($query);
+                                                    $sonuc = $say['0'];
+                                                    echo $sonuc;
+                                                    ?>
+                                                </h2><!--Toplam  Proje-->
+                                            </div>
+
+                                            <div class="four columns column" style="background-color:#FFD700" align="center">
+                                                <h2>Tüm Okunma : 56</h2>
+                                            </div>
+                                    </div>
+                                    <!--Database Durumu START-->
+                                    <!--Root İndex Page Finish-->
+
+                                    <?php
+                                }
+                                   else if ($_GET["selection"]=="makale") //makale alanı
+                                {
+                                ?>
                                 <center>
                                     <form action="" method="post" enctype="multipart/form-data">
-                                        <!--PROJECTS UPLOAD START -->
-                                        <div class="article container row"><br>
-                                            <input  name="project_name" class="eight columns" type="text" placeholder="Proje Adı">
-                                            <input  name="time_limit" class="eight columns" type="text" placeholder="Proje Süresi">
-                                            <input  name="goal" class="eight columns" type="text" placeholder="Proje Amacı">
-                                            <input  name="url" class="eight columns" type="text" value="http://" placeholder="Proje Url">
-                                            <input  name="project_img" class="eight columns" type="file"  style="color: whitesmoke" ><br>
-                                            <input type="submit" name="projects_upload"  value="Proje Ekle" class="eight columns  btn btn-primary" style="border-color: black;color:black">
-                                        </div>
-                                        <!--PROJECTS UPLOAD FİNİSH-->
+                                        <!--ARTICLES UPLOAD START -->
+                                        <input  name="hood" class="twelve columns" type="text" placeholder="Başlık Yazınız">
+                                        <br>
+                                        <br>
+                                        <textarea name="article" class="ckeditor"  cols="30" rows="10"></textarea>
+                                        <br>
+                                        <input  style="color:Red;" name="tags" class="twelve columns" type="text" placeholder="Etiket Ekle (örğn: php,java,jquery)">
+                                        <br><br>
+                                        <input type="submit" name="upload"  value="Gönder" class="btn btn-primary" style="border-color: black;color: black"><br><br>
+                                        <!--ARTICLES UPLOAD START -->
                                     </form>
                                 </center>
-
                                 <?php
-                            }
+                                }
+                                   else if ($_GET["selection"]=="proje") //proje alanı
+                                {?>
 
-                            }?>
+                                    <center>
+                                        <form action="" method="post" enctype="multipart/form-data">
+                                            <!--PROJECTS UPLOAD START -->
+                                            <div class="article container row"><br>
+                                                <input  name="project_name" class="eight columns" type="text" placeholder="Proje Adı">
+                                                <input  name="time_limit" class="eight columns" type="text" placeholder="Proje Süresi">
+                                                <input  name="goal" class="eight columns" type="text" placeholder="Proje Amacı">
+                                                <input  name="url" class="eight columns" type="text" value="http://" placeholder="Proje Url">
+                                                <input  name="project_img" class="eight columns" type="file"  style="color: whitesmoke" ><br>
+                                                <input type="submit" name="projects_upload"  value="Proje Ekle" class="eight columns  btn btn-primary" style="border-color: black;color:black">
+                                            </div>
+                                            <!--PROJECTS UPLOAD FİNİSH-->
+                                        </form>
+                                    </center>
+
+                                    <?php
+                                }
+                                    else if ($_GET["selection"]=="author") //yazar yetki vs. alanı
+                                    {
+                                    require "author.php";
+                                    }
+                                }
+                            ?>
                         </section>
             <?php
             }else{
@@ -157,116 +202,6 @@
 
 
 
-            <!--Root İndex Page Start-->
-                           <!--Database Durumu START-->
-                                <div class="row" align="center" >
-                                    <div class="three columns column" style="background-color:#800080">
-                                        <h2>Yazı :
-
-                                            <?php
-                                            $query = mysql_query("SELECT COUNT(*) FROM articles"); //projects tablosundaki bütün alan sayısı
-                                            $say = mysql_fetch_array($query);
-                                            $sonuc = $say['0'];
-                                            echo $sonuc;
-                                            ?>
-
-                                        </h2> <!--Toplam  Yazı-->
-                                    </div>
-
-                                    <div class="three columns column" style="background-color: 	#008000">
-                                        <h2>Proje Sayısı :
-                                            <?php
-                                            $query = mysql_query("SELECT COUNT(*) FROM projects"); //projects tablosundaki bütün alan sayısı
-                                            $say = mysql_fetch_array($query);
-                                            $sonuc = $say['0'];
-                                            echo $sonuc;
-                                            ?>
-                                        </h2><!--Toplam  Proje-->
-                                    </div>
-
-                                    <div class="three columns column" style="background-color:#FFD700">
-                                        <h2>Okunma : 86</h2>
-                                    </div>
-                                    <div class="three columns column" style="background-color: #008080">
-                                        <h2>Yorum : 485</h2>
-                                    </div>
-                                </div>
-                          <!--Database Durumu START-->
-            <br>
-
-                          <!--Yazar EKLE && Ekli Yazarlara yetki ver START-->
-                                <section class="container">
 
 
-                                    <div class="row">
-
-
-                                        <form action="" method="post" enctype="multipart/form-data">
-
-                                            <div class="twelve columns" align="center">
-
-                                                <div class="six columns" align="center" style="background-color: #D5D3D3;">
-                                                    <h2>Yazar Ekle</h2>
-
-                                                    <?php
-                                                        $auname= mysql_real_escape_string($_POST['author_user_name']);
-                                                        $authorpass= mysql_real_escape_string($_POST['author_pass']);
-                                                        $aname= mysql_real_escape_string($_POST['author_name']);
-                                                        $asname= mysql_real_escape_string($_POST['author_surname']);
-                                                        $amail= mysql_real_escape_string($_POST['author_mail']);
-                                                        $a_add= mysql_real_escape_string($_POST['author_add']);
-                                                        $apass= md5($authorpass);
-
-                                                        if ($a_add)
-                                                        {
-                                                                if ($auname=='' || $authorpass=='' || $aname=='' || $asname=='' || $amail =='')
-                                                                {
-                                                                    echo "Boş Alan Bıraktınız !";
-                                                                }else{
-
-                                                                    $query =mysql_query("insert into writer (author_user_name,a_pass,author_name,author_surname,mail) VALUES ('$auname','$apass','$aname','$asname','$amail')");
-
-                                                                    echo "Yazar Eklendi !";
-                                                                }
-                                                        }
-                                                    ?>
-
-                                                    <input  name="author_user_name" class="ten columns" type="text" placeholder="USERNAME">
-                                                    <input  name="author_pass" class="ten columns" type="password" placeholder="PASSWORD">
-                                                    <input  name="author_name" class="ten columns" type="text" placeholder="NAME">
-                                                    <input  name="author_surname" class="ten columns" type="text" placeholder="SURNAME">
-                                                    <input  name="author_mail" class="ten columns" type="email" placeholder="E-MAİL">
-                                                    <input type="submit" name="author_add"  value="Yazar Kaydet" class="ten columns  btn btn-primary" style="border-color: black;color:black;margin-top:20px;margin-bottom: 10px">
-                                                </div>
-
-                                                <div class="six columns column" align="center" style="background-color: #D5D3D3">
-                                                        <h2>Yazarlar</h2>
-                                                        <?php
-                                                            $query = mysql_query("SELECT COUNT(*) FROM writer"); //writer tablosundaki bütün alan sayısı
-                                                            $say = mysql_fetch_array($query);
-                                                            $sonuc = $say['0'] - 1;
-
-                                                            for ($number = 0; $number <= $sonuc; $number++)
-                                                            {
-                                                                    $num = 1 ;
-                                                                    $query = mysql_query("select * from writer order by id ASC limit $number,$num");
-                                                                    while ($come = mysql_fetch_assoc($query))
-                                                                    {
-                                                                        $authors = $come['author_user_name'];
-
-                                                                        echo "<h5>".$authors;
-                                                                        echo " <input type='submit' name='delete' value='sil'>";
-                                                                        echo "<input type='submit' name='update' value='güncelle'></h5>";
-                                                                    }
-                                                            }
-                                                        ?>
-                                                </div>
-
-                                            </div>
-                                        </form>
-                                    </div>
-                                    <hr/>
-                                </section>
-                        <!--Yazar EKLE && Ekli Yazarlara yetki ver FINISH-->
-            <!--Root İndex Page Finish-->
     </body>
