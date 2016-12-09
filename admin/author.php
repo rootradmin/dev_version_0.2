@@ -71,7 +71,7 @@
                         }else if ($_POST['update']){
                         ?>
 
-                        <div class="six columns" align="center" style="background-color: darkgray;">
+                        <div class="six columns" align="center" style="background-color: #D5D3D3;">
                             <h2>Yazar Güncelle</h2>
                                <form method="post">
                                    <input type="hidden">
@@ -91,10 +91,10 @@
                         if ($save){ //save-"güncellemeyi kaydet butonu"a basıldıyda
                             //güncellenecek alanlar
                            $sorgu = mysql_query("UPDATE writer SET author_user_name='$newusername',a_pass='$newpass',author_name='$newname',author_surname='$newsurname',mail='$newmail'  WHERE id='$hiddehid'");
-                           echo "<h1 style='background-color: darkgray'>Güncellendi</h1>";
+                           echo "<h1 style='background-color: #D5D3D3'>Güncellendi</h1>";
                         }
                         ?>
-                        <div class="twelve columns" align="center" style="background-color: darkgray">
+                        <div class="twelve columns" align="center" style="background-color: #D5D3D3">
                             <h2>Yazarlar</h2>
                             <?php
                             $query = mysql_query("SELECT COUNT(*) FROM writer"); //writer tablosundaki bütün alan sayısı
