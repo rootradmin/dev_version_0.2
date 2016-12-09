@@ -51,7 +51,7 @@
                         <!--Proje Alanı Start-->
                                 <div class="six columns">
                                     <br>
-                                    <img src="<?php echo $project_img;?>">
+                                    <img src="upload/<?php echo $project_img;?>">
                                 </div>
                                 <div class="six columns">
                                     <p>
