@@ -86,7 +86,7 @@
                         if ($save){ //save-"güncellemeyi kaydet butonu"a basıldıyda
                             //güncellenecek alanlar
                            $sorgu = mysql_query("UPDATE writer SET author_user_name='$newusername',a_pass='$newpass',author_name='$newname',author_surname='$newsurname',mail='$newmail'  WHERE id='$hiddehid'");
-                           echo "<h1 style='background-color: orangered  '>Güncellendi</h1>";
+                           echo "<h1 style='background-color: darkgray'>Güncellendi</h1>";
 
                         }
                    ?>
