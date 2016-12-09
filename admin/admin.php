@@ -23,7 +23,6 @@
             {           ?><br><br>
 
                         <section class="nav sub-page">
-
                                 <ul style="background-color: 	transparent;">
 
                                     <li><a href="admin.php?selection=index">Anamenu</a></li>
@@ -32,7 +31,6 @@
                                     <li><a href="admin.php?selection=author">Yazar Yönetimi</a></li>
                                     <li><a href="logout.php">ÇIKIŞ</a></li>
                                 </ul>
-
                         </section>
 
                         <?php
@@ -105,7 +103,6 @@
                                 {  if ($_GET["selection"]=="index") //anasayfa indexi
                                 {
                                     ?>
-
                                     <!--Root İndex Page Start-->
                                     <!--Database Durumu START-->
                                     <div class="row"align="center">
@@ -140,7 +137,6 @@
                                     </div>
                                     <!--Database Durumu START-->
                                     <!--Root İndex Page Finish-->
-
                                     <?php
                                 }
                                    else if ($_GET["selection"]=="makale") //makale alanı
@@ -198,10 +194,4 @@
                         header("refresh:1;url= index.php");
             }
             ?>
-
-
-
-
-
-
     </body>
