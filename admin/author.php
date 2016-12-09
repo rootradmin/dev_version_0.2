@@ -10,7 +10,6 @@
                         <div class="six columns" align="center" style="background-color: #D5D3D3;">
                             <h2>Yazar Ekle</h2>
                             <?php
-                            $id = $_POST['id'];
                             $auname= mysql_real_escape_string($_POST['author_user_name']);
                             $authorpass= mysql_real_escape_string($_POST['author_pass']);
                             $aname= mysql_real_escape_string($_POST['author_name']);
@@ -18,8 +17,6 @@
                             $amail= mysql_real_escape_string($_POST['author_mail']);
                             $a_add= mysql_real_escape_string($_POST['author_add']);
                             $apass= md5($authorpass);
-                            $düzenle = mysql_real_escape_string($_POST['düzenle']);
-
 
                             if ($a_add)
                             {
@@ -44,19 +41,59 @@
                     <!--YAZAR EKLEME ALANI FINISH-->
 
 
-                   <?php if ($_POST['delete'])
-                    {?>
+                   <?php
+                       //update postları start
+                           $newusername  = mysql_real_escape_string($_POST['newusername']);
+                           $newpa = mysql_real_escape_string($_POST['newpass']);
+                           //md5 ile şifremizi koruyoruz
+                           $newpass = md5($newpa);
 
-                        <div class="six columns" style="background-color: #D5D3D3">
-                            <form method="post" enctype="multipart/form-data">
-                                <input type='text' name='adiniz' placeholder="adiniz">
-                                <input type="submit" name="kaydet"  value="Yazarı Güncelle" class="ten columns  btn btn-primary" >
-                            </form>
-                        </div>
-                    <?php
-                    }
+                           $newname = mysql_real_escape_string($_POST['newname']);
+                           $newsurname = mysql_real_escape_string($_POST['newsurname']);
+                           $newmail  = mysql_real_escape_string($_POST['newmail']);
+                       //update postları finish
+                        $save = mysql_real_escape_string($_POST['save']);
+                        $hiddehid =mysql_real_escape_string($_POST['hiddehid']);
+                        $id  = mysql_real_escape_string($_POST['id']);
 
+                       if ($_POST['delete']) //SİL BUTONUNA BASILDIĞINDA İD'Sİ GELEN DEĞERİ SİL
+                        {
+                          $sql = mysql_query("Delete from writer WHERE id='$id'"); // sil sorugusu
+                        }else if ($_POST['update']){
+                        ?>
+
+                        <div class="six columns" align="center" style="background-color: darkgray;">
+                            <h2>Yazar Güncelle</h2>
+                               <form method="post">
+                                   <input type="hidden">
+                                   <input  name="newusername" type="text"     class="ten columns"  placeholder="NEW USERNAME">
+                                   <input  name="newpass"     type="password" class="ten columns"  placeholder="NEW PASSWORD">
+                                   <input  name="newname"     type="text"     class="ten columns"  placeholder=" NEW NAME">
+                                   <input  name="newsurname"  type="text"     class="ten columns"  placeholder="NEW SURNAME">
+                                   <input  name="newmail"     type="email"    class="ten columns"  placeholder="NEW E-MAİL">
+
+                                   <input type="submit"  name="save" value="Güncellemeyi kaydet" class="ten columns  btn btn-primary" style="border-color: black;color:black;margin-top:20px; margin-bottom: 10px">
+
+                                   <!--İd değerini if ile kullanmak-->
+                                        <input type="hidden" name="hiddehid" value="<?php echo $id;?>">
+                                   <!--İd değerini if ile kullanmak-->
+
+                               </form>
+
+                        </div><br>
+                           <?php
+                        }
+                        if ($save){ //save-"güncellemeyi kaydet butonu"a basıldıyda
+                            //güncellenecek alanlar
+                           $sorgu = mysql_query("UPDATE writer SET author_user_name='$newusername',a_pass='$newpass',author_name='$newname',author_surname='$newsurname',mail='$newmail'  WHERE id='$hiddehid'");
+                           echo "<h1 style='background-color: orangered  '>Güncellendi</h1>";
+
+                        }
                    ?>
+
+
+
+
 
                     <div class="twelve columns" align="center" style="background-color: darkgray">
                         <h2>Yazarlar</h2>
@@ -73,8 +110,9 @@
                                 $id = $come ['id'];
                                 echo "<form method='post'><div class='ten columns' align='left'>";
                                 echo "<h2>" . $authors;
+                                echo "<input type='hidden' name='id' value='$id'>";
                                 echo " <input type='submit' name='delete' value='SİL'>";
-                                echo "<input type='submit' name='düzenle' value='$id'></h2></div></form>";
+                                echo "<input type='submit' name='update' value='GÜNCELLE'></h2></div></form>";
 
                             }
 
