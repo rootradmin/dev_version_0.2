@@ -142,16 +142,17 @@ require "settings.php";
                                 }
                                 ?>
                                 <article class="article">
-                                    <header>
-                                        <div class="meta-data">
-                                            <h3><a href="<?=seo($seo_url).'-'.$id;?>.html"><?php echo $hood; ?></a></h3>
-                                            <!-- <p class="author">
+
+                                    <div class="entry-content" id="info" align="center">
+                                        <header>
+                                            <div class="meta-data">
+                                                <h3><a href="<?=seo($seo_url).'-'.$id;?>.html"><?php echo $hood; ?></a></h3>
+                                                <!-- <p class="author">
                                                                                         <time datetime="2015-08-07"><?php echo $date; ?></time>
                                                                                     </p> --> <!--DATE View-->
-                                            <div class="socbtn"></div>
-                                        </div>
-                                    </header>
-                                    <div class="entry-content" id="info" align="center">
+                                                <div class="socbtn"></div>
+                                            </div>
+                                        </header>
                                         <p><?php echo $article;?></p>
                                     </div>
                                 </article>
@@ -195,10 +196,10 @@ require "settings.php";
     <script>
 
     $('.article #info').readmore({
-        speed: 1200,
+        speed: 600,
         moreLink: '<a class="button-text" href="#">Read More <span>&darr;</span></a>',
         lessLink: '<a class="button-text" href="#">Read Less <span>&uarr;</span></a>',
-        collapsedHeight: 250,
+        collapsedHeight: 350,
         heightMargin: 20,
         afterToggle: function(trigger, element, expanded) {
             if(! expanded) { // The "Close" link was clicked
@@ -207,4 +208,4 @@ require "settings.php";
         }
     });
 </script>
-    <!--read more-less finish-->
+     
