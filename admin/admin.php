@@ -184,7 +184,7 @@
                                 }
                                     else if ($_GET["selection"]=="author") //yazar yetki vs. alanı
                                     {
-                                    require "author.php";
+                                          require "author.php";
                                     }
                                 }
                             ?>
