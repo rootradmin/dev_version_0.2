@@ -130,7 +130,7 @@ require "settings.php";
                         {       /**İD'ye değer atama start**/
                                 $num = "1";
                                 /**İD'ye değer atama finish**/
-                                $query = mysql_query("select * from articles order by id DESC limit $number,$num");
+                                $query = mysql_query("select * from articles WHERE status=1 order by id DESC limit $number,$num"); //durumu 1 olanları göster
                                 if (mysql_num_rows($query)) {
                                     while ($come = mysql_fetch_array($query)) {
                                         $id = $come ['id'];

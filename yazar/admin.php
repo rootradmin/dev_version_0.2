@@ -53,12 +53,14 @@
                                 echo "<a style='color: whitesmoke'>Makale Ayrıntılarında Boş Alan Bıraktınız !</a>";
                             }else{
                                 // echo "<option>butona basıldı</option>";
-                                $query = mysql_query("insert into articles (seo_hood,hood,article,tags) values ('$seo_url','$hood','$article','$tags')  ");
+                                $query = mysql_query("insert into articles (seo_hood,hood,article,tags,status) values ('$seo_url','$hood','$article','$tags','0')  ");
 
                                 echo        "<a style='color: whitesmoke'>Makale Kaydedildi!</a>";
                             }
                         }?>
 
+
+                <div align="right"> <a  style="color: black; font-size:x-large;" href="logout.php">Çıkış Yap</a></div>
                                     <center>
                                         <form action="" method="post" enctype="multipart/form-data">
                                             <!--ARTICLES UPLOAD START -->
