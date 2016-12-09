@@ -10,6 +10,7 @@
                         <div class="six columns" align="center" style="background-color: #D5D3D3;">
                             <h2>Yazar Ekle</h2>
                             <?php
+                            error_reporting(0);
                             $auname= mysql_real_escape_string($_POST['author_user_name']);
                             $authorpass= mysql_real_escape_string($_POST['author_pass']);
                             $aname= mysql_real_escape_string($_POST['author_name']);
