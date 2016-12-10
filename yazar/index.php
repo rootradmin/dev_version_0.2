@@ -14,14 +14,16 @@ require "../connect.php";
 <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="../css/styles.css">
 <link rel="shortcut icon" href="../img/anka.jpg"/>
-    <body style="background-color: #0E2231">
+<script src="https://use.fontawesome.com/a6cd1fed07.js"></script>
+    <body style="background-color: #ca500a">
 
-        <div class="row container" align="center" style="background-color: #0E2231">
-
+        <div class="row container" align="center" style="background-color: #ca500a">
+<br>
             <div class="header">
                 <div class="container">
                     <div class="logo" align="center">
-                                <img src="../img/anka.jpg"><br>
+                        <i class="fa fa-user-o fa-5x" aria-hidden="true"></i>
+                        <br>
                     </div>
                 </div>
             </div>
