@@ -68,6 +68,7 @@
                             return $s;
                         }
                         $seo_url = seo($hood);
+
                         if ($upload) //makale upload
                         {
                             if($hood=='' || $article=='')

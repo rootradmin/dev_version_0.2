@@ -16,4 +16,6 @@
 
     ( if güncelleye basıldıysa yeni bir input alanı açılsın)
 
+    **projelere proje silme koy
+
 -->
