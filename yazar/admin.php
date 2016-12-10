@@ -60,7 +60,7 @@
                         }?>
 
 
-                <H5>Sayın <b style="color:#ca500a;"> <?php echo $user;?> </b>, Hoşheldin..</H5>
+                <H5>Sayın <b style="color:#ca500a;"> <?php echo $user;?> </b>, Hoşgeldin..</H5>
                 <div align="right"> <a  style="color: black; font-size:x-large;" href="logout.php">Çıkış Yap</a></div>
                                     <center>
                                         <form action="" method="post" enctype="multipart/form-data">
