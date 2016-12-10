@@ -20,7 +20,7 @@
 
     <section class="container">
 
-            <p align="center">Kahve ve sigara ile bilgisayar başında geçirdiğim anlardan geriye ve Özgür Yazılıma kendi çapımda bir şeyler bırakmaya çalışıyorum öğrendikçe deniyorum.Projelerimi aşağıda görebilirsin.
+            <p align="center">Kahvem ile bilgisayar başında geçirdiğim anlardan geriye ve Özgür Yazılıma kendi çapımda bir şeyler bırakmaya çalışıyorum öğrendikçe deniyorum.Projelerimi aşağıda görebilirsin.
                 <i class="fa fa-github" aria-hidden="true"></i><a href="https://github.com/rootradmin">Github'da beni bul !</a>
             </p>
 
