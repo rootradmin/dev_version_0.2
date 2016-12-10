@@ -26,7 +26,7 @@
                                 <ul style="background-color: 	transparent;">
 
                                     <?php
-                                    $query = mysql_query("SELECT COUNT(*) FROM articles WHERE status=0"); //onay bekleyen yazı sayısı
+                                    $query = mysql_query("SELECT COUNT(*) FROM articles WHERE status=0"); //onay bekleyenleri
                                     $say = mysql_fetch_array($query);
                                     $sonuc = $say['0'];
                                     ?>

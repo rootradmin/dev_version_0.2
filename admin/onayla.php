@@ -1,11 +1,8 @@
 <?php/** * Created by PhpStorm.* User: radmin* Date: 9.12.2016* Time: 23:59 */?>
 
-
     <?php
 
     $sql = mysql_query("select * from articles where status=0"); //Onay bekleyen yazıları(durumu 0) olanları göster
-
-
 
         while ($come = mysql_fetch_assoc($sql)) {
 
