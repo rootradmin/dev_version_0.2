@@ -13,14 +13,14 @@
 <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic" rel="stylesheet" type="text/css">
 <link rel="stylesheet" href="../css/styles.css">
 <link rel="shortcut icon" href="../img/anka.jpg"/>
-<script type="application/javascript" src="ckeditor/ckeditor.js"></script>
+<script type="application/javascript" src="../ckeditor/ckeditor.js"></script>
 
     <body style="background-image: url(../img/news-7.jpg)">
             <?php
             Session_start();
             $user = $_SESSION['user'];
                     if ($user)
-            {           ?><br><br>
+            {           ?>
 
 
                         <?php
@@ -60,6 +60,7 @@
                         }?>
 
 
+                <H5>Sayın <b style="color:#ca500a;"> <?php echo $user;?> </b>, Hoşheldin..</H5>
                 <div align="right"> <a  style="color: black; font-size:x-large;" href="logout.php">Çıkış Yap</a></div>
                                     <center>
                                         <form action="" method="post" enctype="multipart/form-data">
