@@ -6,6 +6,7 @@
     $sql = mysql_query("select * from articles where status=0"); //Onay bekleyen yazıları(durumu 0) olanları göster
 
 
+
         while ($come = mysql_fetch_assoc($sql)) {
 
             $id = $come['id'];
@@ -13,6 +14,7 @@
             $write = $come['article'] . "<br>";
             $idm = $_POST['idm'];
             ?>
+
             <div align="center" style="background-color:darkgray ">
                 <form method="post">
                     <h5>
@@ -24,17 +26,15 @@
                     <p><?php echo $write ?></p>
                 </form>
             </div>
-
             <?php
-
-
-
-
-
-
-
         }
-    $sqlsorgu = mysql_query("select * from articles SET status=1 where id=$idm");
 
+        if ($_POST['reddet']){
+            $query = mysql_query("delete from articles where id=$idm");
+            echo "<h1>SİLİNDİ</h1>";
 
+        }elseif ($_POST['onayla']){
+            $sqlsorgu = mysql_query("update articles SET status=1 where id=$idm");
+            echo "<H1>ONAYLANDI</H1>";
+        }
     ?>
