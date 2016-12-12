@@ -95,6 +95,7 @@ require "settings.php";
                     <ul>
                         <li><a href="<?php echo $settings;?>">BLOG</a></li>
                         <li><a href="<?php echo $settings;?>allposts">YAZILAR</a></li>
+                        <li><a href="<?php echo $settings;?>mostread">EN ÇOK OKUNAN</a></li>
                         <li><a href="<?php echo $settings;?>projects">PROJELER</a></li>
                         <li><a href="<?php echo $settings;?>about">KİMİM ?</a></li>
                         <li><a href="<?php echo $settings;?>contact">İLETİŞİM</a></li>
@@ -105,8 +106,8 @@ require "settings.php";
     <?php
          //Seo harf dönüşümü için function
         function seo($s) {
-            $tr = array('ş','Ş','ı','I','İ','ğ','Ğ','ü','Ü','ö','Ö','Ç','ç','(',')','/',':',',','?','!','+');
-            $eng = array('s','s','i','i','i','g','g','u','u','o','o','c','c','','','-','-','','','','');
+            $tr = array('ş','Ş','ı','I','İ','ğ','Ğ','ü','Ü','ö','Ö','Ç','ç','(',')','/',':',',','?','!','+','.','"',"'");
+            $eng = array('s','s','i','i','i','g','g','u','u','o','o','c','c','','','-','-','-','-','-','-','-','-','-');
             $s = str_replace($tr,$eng,$s);
             $s = strtolower($s);
             $s = preg_replace('/&amp;amp;amp;amp;amp;amp;amp;amp;amp;.+?;/', '', $s);
@@ -164,6 +165,7 @@ require "settings.php";
         }
 
         else if ($pages == "allposts"){ require "allposts.php";}
+        else if ($pages == "mostread"){ require "mostread.php";}
         else if ($pages == "about"){ require "about.php";}
         else if ($pages == "projects") {require "projects.php";}
         else if ($pages == "contact"){ require "contact.php";}
