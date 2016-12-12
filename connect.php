@@ -2,7 +2,7 @@
 
 <?php
 error_reporting(0);
-@header('Content-Type: text/html; charset=utf-8');
+header('Content-Type: text/html; charset=utf-8');
 
 $host="127.0.0.1" ;      //host name(**)
 $veritani="personal";         //oluşturduğumuz veritabanı adıdır.

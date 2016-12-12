@@ -53,7 +53,7 @@
                                 echo "<a style='color: whitesmoke'>Makale Ayrıntılarında Boş Alan Bıraktınız !</a>";
                             }else{
                                 // echo "<option>butona basıldı</option>";
-                                $query = mysql_query("insert into articles (seo_hood,hood,article,tags,status) values ('$seo_url','$hood','$article','$tags','0')  ");
+                                $query = mysql_query("insert into articles (seo_hood,hood,article,users,tags,status) values ('$seo_url','$hood','$article','$user','$tags','0')  ");
 
                                 echo        "<a style='color: whitesmoke'>Makale Kaydedildi!</a>";
                             }

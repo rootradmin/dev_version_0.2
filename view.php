@@ -92,20 +92,26 @@ require "settings.php";
         </section>
 
     <?php
-    $id = $_GET['id'];              //.Htaccesten gelen id datası
-    $seo_url = $_GET['seo_hood'];  // .Htasccesten gelen  seo_hood datası
+        $id = $_GET['id'];              //.Htaccesten gelen id datası
+        $seo_url = $_GET['seo_hood'];  // .Htasccesten gelen  seo_hood datası
+
+        mysql_query("Update articles Set counter =(counter+1) where id='$id'"); //görüntülenme sayısı çoğul olarak
 
         if (isset($_GET['id']))
         {                               //Seo için gerekli veritabanı sorgusu
-                $query = @mysql_fetch_array(mysql_query("select * from articles  WHERE seo_hood='$seo_url' AND id='$id'"));
+                $query = mysql_fetch_array(mysql_query("select * from articles  WHERE seo_hood='$seo_url' AND id='$id'"));
 
                 $hood = $query ['hood'];
                 $article = $query['article'];
+                $user = $query['users'];
                 $tags = $query['tags'];
+                $counter = $query ['counter'];
             
                 echo "<title>".$hood."</title>";
                 echo "<br><article class='article container'>";
                 echo "<h3 align='center'> <a>$hood</a> </h3>";
+                echo "<center><i class='fa fa-eye' aria-hidden='true' style='margin-right: 15px'>:".$counter."</i>";
+                echo "<i class='fa fa-pencil-square-o' aria-hidden='true'>".$user."</i></center>";
                 echo "<center> <div class='entry-content' id='info' align='center'><p class='noline'>$article</p></div></center>";
 
 
