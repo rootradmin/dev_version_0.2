@@ -4,6 +4,7 @@
 error_reporting(0);
 require "connect.php";
 require "settings.php";
+
 ?>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -89,6 +90,7 @@ require "settings.php";
                 </ul>
             </nav>
         </section>
+
     <?php
     $id = $_GET['id'];              //.Htaccesten gelen id datası
     $seo_url = $_GET['seo_hood'];  // .Htasccesten gelen  seo_hood datası
@@ -140,8 +142,6 @@ require "settings.php";
                                 <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
                             </div>
                       <!--Disqus Yorum Penceresi Finish-->
-                </article>
-
             <?php
         }
     ?>
@@ -156,7 +156,6 @@ require "settings.php";
                         </ul>
                     </nav>
                 </section>
-
         -->
 <hr>
 <!-- Footer start-->
@@ -177,7 +176,5 @@ require "settings.php";
     </div>
 </footer>
 <!-- Footer finish-->
-
 <script src="js/scripts.js"></script>
-
 
