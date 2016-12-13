@@ -92,13 +92,13 @@ require "settings.php";
         </section>
 
     <?php
-        $id = $_GET['id'];              //.Htaccesten gelen id datası
-        $seo_url = $_GET['seo_hood'];  // .Htasccesten gelen  seo_hood datası
 
-        mysql_query("Update articles Set counter =(counter+1) where id='$id'"); //görüntülenme sayısı çoğul olarak
+            $id = $_GET['id'];              //.Htaccesten gelen id datası
+            $seo_url = $_GET['seo_hood'];  // .Htasccesten gelen  seo_hood datası
 
-        if (isset($_GET['id']))
-        {                               //Seo için gerekli veritabanı sorgusu
+            mysql_query("Update articles Set counter =(counter+1) where id='$id'"); //görüntülenme sayısı çoğul olarak
+
+            if (isset($_GET['id'])) {                               //Seo için gerekli veritabanı sorgusu
                 $query = mysql_fetch_array(mysql_query("select * from articles  WHERE seo_hood='$seo_url' AND id='$id'"));
 
                 $hood = $query ['hood'];
@@ -106,50 +106,54 @@ require "settings.php";
                 $user = $query['users'];
                 $tags = $query['tags'];
                 $counter = $query ['counter'];
-            
-                echo "<title>".$hood."</title>";
+
+                echo "<title>" . $hood . "</title>";
                 echo "<br><article class='article container'>";
                 echo "<h3 align='center'> <a>$hood</a> </h3>";
-                echo "<center><i class='fa fa-eye' aria-hidden='true' style='margin-right: 15px'>:".$counter."</i>";
-                echo "<i class='fa fa-pencil-square-o' aria-hidden='true'>".$user."</i></center>";
+                echo "<center><i class='fa fa-eye' aria-hidden='true' style='margin-right: 15px'>:" . $counter . "</i>";
+                echo "<i class='fa fa-pencil-square-o' aria-hidden='true'>" . $user . "</i></center>";
                 echo "<center> <div class='entry-content' id='info' align='center'><p class='noline'>$article</p></div></center>";
 
 
-                     //ETİKET ALANI START
-                        echo "<footer><ul  class='tags seven columns'>";
-                                    $kelimeler = explode(',', $tags);//virgüle göre parçalandı.
+                //ETİKET ALANI START
+                echo "<footer> <ul  class='tags seven columns'>";
+                $kelimeler = explode(',', $tags);//virgüle göre parçalandı.
 
-                                    foreach ($kelimeler as $anahtar=>$deger)//ayrılan kelimeleri tek tek bir diziye atandı.
-                                    {
-                                        $dizi[$i]=$deger;//dizi
-                                        $i++;            //dizi değeri arttırıldı
-                                    }
+                foreach ($kelimeler as $anahtar => $deger)//ayrılan kelimeleri tek tek bir diziye atandı.
+                {
+                    $dizi[$i] = $deger;//dizi
+                    $i++;            //dizi değeri arttırıldı
+                }
 
-                                    $yeni=$dizi;//yinelenen kelimeler geldi
+                $yeni = $dizi;//yinelenen kelimeler geldi
 
-                                    foreach ($yeni as $liste)//yeni kelimeler dizisini ekrana yazdırma
-                                    {
-                                        echo    "  <li><a href=etiket/$liste class='tag'>$liste</a></li>      ";
-                                    }
-                        echo "</ul></footer>";
-                     //ETİKET ALANI FINISH
+                foreach ($yeni as $liste)//yeni kelimeler dizisini ekrana yazdırma
+                {
+                    echo "<li><a href='etiket/$liste' class='tag'> $liste </a></li>";
+
+                    echo "<input  type='hidden' name='liste' value='$liste'>";
+                }
+                echo "</ul> </footer>";
+                //ETİKET ALANI FINISH
                 ?>
-                       <!--Disqus Yorum Penceresi Start-->
-                            <div class='entry-content' id='info' align='center'>
-                                <div id="disqus_thread"></div>
-                                <script>
-                                    (function() { // DON'T EDIT BELOW THIS LINE
-                                        var d = document, s = d.createElement('script');
-                                        s.src = '//http-rootradmin-xyz.disqus.com/embed.js';
-                                        s.setAttribute('data-timestamp', +new Date());
-                                        (d.head || d.body).appendChild(s);
-                                    })();
-                                </script>
-                                <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
-                            </div>
-                      <!--Disqus Yorum Penceresi Finish-->
-            <?php
-        }
+                <!--Disqus Yorum Penceresi Start-->
+                <div class='entry-content' id='info' align='center'>
+                    <div id="disqus_thread"></div>
+                    <script>
+                        (function () { // DON'T EDIT BELOW THIS LINE
+                            var d = document, s = d.createElement('script');
+                            s.src = '//http-rootradmin-xyz.disqus.com/embed.js';
+                            s.setAttribute('data-timestamp', +new Date());
+                            (d.head || d.body).appendChild(s);
+                        })();
+                    </script>
+                    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments
+                            powered by Disqus.</a></noscript>
+                </div>
+                <!--Disqus Yorum Penceresi Finish-->
+                <?php
+            }
+
     ?>
 
         <!--
