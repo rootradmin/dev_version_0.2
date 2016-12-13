@@ -106,12 +106,14 @@ require "settings.php";
                 $user = $query['users'];
                 $tags = $query['tags'];
                 $counter = $query ['counter'];
+                $subject = $query['subject'];
 
                 echo "<title>" . $hood . "</title>";
                 echo "<br><article class='article container'>";
                 echo "<h3 align='center'> <a>$hood</a> </h3>";
                 echo "<center><i class='fa fa-eye' aria-hidden='true' style='margin-right: 15px'>:" . $counter . "</i>";
-                echo "<i class='fa fa-pencil-square-o' aria-hidden='true'>" . $user . "</i></center>";
+                echo "<i class='fa fa-pencil-square-o' aria-hidden='true' style='margin-right: 15px'>:" . $user . "</i>";
+                echo "<i class='fa fa-bookmark-o' aria-hidden='true' style='margin-right: 15px'>:".$subject."</i></center>";
                 echo "<center> <div class='entry-content' id='info' align='center'><p class='noline'>$article</p></div></center>";
 
 

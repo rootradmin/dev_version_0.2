@@ -44,6 +44,7 @@
                         $id = mysql_real_escape_string($_POST['id']);
                         $hood = mysql_real_escape_string($_POST ['hood']);
                         $article = mysql_real_escape_string($_POST ['article']);
+                        $subject = mysql_real_escape_string($_POST['subject']);
                         $tags = mysql_real_escape_string($_POST['tags']);
                         $upload = mysql_real_escape_string($_POST ["upload"]);
                         //proje değişkenleri
@@ -76,7 +77,7 @@
                                 echo "<a style='color: whitesmoke'>Makale Ayrıntılarında Boş Alan Bıraktınız !</a>";
                             }else{
                                 // echo "<option>butona basıldı</option>";
-                                $query = mysql_query("insert into articles (seo_hood,hood,article,users,tags,status) values ('$seo_url','$hood','$article','$user','$tags','1')  ");
+                                $query = mysql_query("insert into articles (seo_hood,hood,article,users,subject,tags,status) values ('$seo_url','$hood','$article','$user','$subject','$tags','1')  ");
 
                                 echo        "<a style='color: whitesmoke'>Makale Kaydedildi!</a>";
                             }
@@ -156,6 +157,8 @@
                                         <br>
                                         <br>
                                         <textarea name="article" class="ckeditor"  cols="30" rows="10"></textarea>
+                                        <br>
+                                        <input  name="subject" class="twelve columns" type="text" placeholder="Konu Yazınız">
                                         <br>
                                         <input  style="color:Red;" name="tags" class="twelve columns" type="text" placeholder="Etiket Ekle (örğn: php,java,jquery)">
                                         <br><br>
