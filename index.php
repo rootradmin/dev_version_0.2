@@ -162,7 +162,7 @@ require "settings.php";
                     ?>       <!-- İçerik Yazısı 1 bitti -->
                 </section>
             <?php
-            require "etiket.php";
+            require "tags.php";
            $liste = $_GET['liste'];
         }
         else if ($pages == "allposts"){ require "allposts.php";}
@@ -171,7 +171,7 @@ require "settings.php";
         else if ($pages == "projects") {require "projects.php";}
         else if ($pages == "contact"){ require "contact.php";}
         else if ($pages == "search"){ require "search.php";}
-        else if ($pages == "ekiket/".$liste){ require "etiket.php";}
+        else if ($pages == "ekiket/".$liste){ require "tags.php";}
 
     else{echo   "<h1 align='center'><i class='fa fa-times fa-lg' aria-hidden='true'></i>HATA </h1>";}
     ?>

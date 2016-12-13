@@ -157,18 +157,6 @@ require "settings.php";
             }
 
     ?>
-
-        <!--
-
-                <section>
-                    <nav role="navigation">
-                        <ul class="pagination">
-                            <li><a class="next" href="#0">&larr; next page</a></li>
-                            <li><a class="prev" href="#0">prev page &rarr;</a></li>
-                        </ul>
-                    </nav>
-                </section>
-        -->
 <hr>
 <!-- Footer start-->
 <footer>
