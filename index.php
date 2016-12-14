@@ -119,7 +119,7 @@ require "settings.php";
             return $s;
         }
         $pages = $_GET ['pages'];
-
+        $liste = $_GET['liste'];
         if ( $pages == '' || $pages == $settings || $pages =='index') {
             ?>
             <title>root@radmin | Welcome</title>
@@ -162,8 +162,7 @@ require "settings.php";
                     ?>       <!-- İçerik Yazısı 1 bitti -->
                 </section>
             <?php
-            require "tags.php";
-           $liste = $_GET['liste'];
+
         }
         else if ($pages == "allposts"){ require "allposts.php";}
         else if ($pages == "mostread"){ require "mostread.php";}
