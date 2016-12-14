@@ -32,6 +32,7 @@
                                     ?>
                                     <li><a href="admin.php?selection=index">Anamenu</a></li>
                                     <li><a href="admin.php?selection=makale">MAKALE</a></li>
+                                    <li><a href="admin.php?selection=makale_edit">Makaleyi Düzenle</a></li>
                                     <li><a href="admin.php?selection=proje">PROJE</a></li>
                                     <li><a href="admin.php?selection=author">Yazar Yönetimi</a></li>
                                     <li><a href="admin.php?selection=status">Onay Bekleyen(<color style="color: red"><?php echo $sonuc;?></color>)</a></li>
@@ -77,7 +78,7 @@
                                 echo "<a style='color: whitesmoke'>Makale Ayrıntılarında Boş Alan Bıraktınız !</a>";
                             }else{
                                 // echo "<option>butona basıldı</option>";
-                                $query = mysql_query("insert into articles (seo_hood,hood,article,users,subject,tags,status) values ('$seo_url','$hood','$article','$user','$subject','$tags','1')  ");
+                                $query = mysql_query("insert into articles (seo_hood,hood,article,users,subject,tags,status) values ('$seo_url','$hood','$article','$user','$subject','$tags','1')");
 
                                 echo        "<a style='color: whitesmoke'>Makale Kaydedildi!</a>";
                             }
@@ -169,6 +170,10 @@
                                 <?php
 
                                 }
+                                   else if ($_GET["selection"]=="makale_edit"){
+
+                                    require "makale_edit.php";
+                                   }
                                    else if ($_GET["selection"]=="proje") //proje alanı
                                 {?>
 
