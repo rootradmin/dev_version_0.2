@@ -17,5 +17,6 @@
     ( if güncelleye basıldıysa yeni bir input alanı açılsın)
 
     **projelere proje silme koy
-**ADMİN PANELİNDEKİ UDPDATEYE BAKK !!!!
+
+        ***MOSTREAD aşağıya indikçe daralıyor , kontrol et !
 -->
