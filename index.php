@@ -13,7 +13,7 @@ require "settings.php";
 
     <link href='http://fonts.googleapis.com/css?family=Raleway:400,600,700,800' rel='stylesheet' type='text/css'>
     <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic" rel="stylesheet" type="text/css">
-    <link rel="stylesheet" href="<?php echo $settins ;?>css/styles.css">
+    <link rel="stylesheet" href="<?php echo $settings ;?>css/styles.css">
     <link rel="shortcut icon" href="img/anka.jpg"/>
     <!--CKEditor codesnipper plugin colors start-->
     <link rel="stylesheet" href="ckeditor/plugins/codesnippet/lib/highlight/styles/monokai.css">
