@@ -2,11 +2,10 @@
 
 <?php
 error_reporting(0);
-header('Content-Type: text/html; charset=utf-8');
 require "connect.php";
 require "settings.php";
-?>
 
+?>
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="description" content="">
@@ -14,14 +13,13 @@ require "settings.php";
 
 <link href='http://fonts.googleapis.com/css?family=Raleway:400,600,700,800' rel='stylesheet' type='text/css'>
 <link href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400,700,400italic" rel="stylesheet" type="text/css">
-<link rel="stylesheet" href="<?php echo $settings ;?>css/styles.css">
+<link rel="stylesheet" href="css/styles.css">
 <link rel="shortcut icon" href="img/anka.jpg"/>
 <!--CKEditor codesnipper plugin colors start-->
 <link rel="stylesheet" href="ckeditor/plugins/codesnippet/lib/highlight/styles/monokai.css">
 <script src="ckeditor/plugins/codesnippet/lib/highlight/highlight.pack.js" type="text/javascript"></script>
 <script>hljs.initHighlightingOnLoad();</script>
 <!--CKEditor codesnipper plugini colors finish-->
-<script src="js/scripts.js"></script>
 <script src="https://use.fontawesome.com/a6cd1fed07.js"></script>
 
     <section class="top-bar">
@@ -160,7 +158,6 @@ require "settings.php";
 
     ?>
 <hr>
-
 <!-- Footer start-->
 <footer>
     <div class="inner">
@@ -179,20 +176,5 @@ require "settings.php";
     </div>
 </footer>
 <!-- Footer finish-->
+<script src="js/scripts.js"></script>
 
-<!--read more-less start-->
-<script>
-
-    $('.article #info').readmore({
-        speed: 600,
-        moreLink: '<a class="button-text" href="#">Read More <span>&darr;</span></a>',
-        lessLink: '<a class="button-text" href="#">Read Less <span>&uarr;</span></a>',
-        collapsedHeight: 350,
-        heightMargin: 20,
-        afterToggle: function(trigger, element, expanded) {
-            if(! expanded) { // The "Close" link was clicked
-                $('html, body').animate({scrollTop: element.offset().top}, {duration: 300});
-            }
-        }
-    });
-</script>
