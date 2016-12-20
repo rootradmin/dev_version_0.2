@@ -9,6 +9,7 @@
             {
                     $del = mysql_query("delete from articles where id='$gelen'");
                     echo "<h1>Makale Başarıyla Silindi !</h1>";
+                    header("refresh:1;url='http://rootradmin.xyz/admin/admin.php?selection=makale_edit'");
 
             }
             else if ($update) //güncelleye basıldıysa güncelleme işlemin yap
@@ -32,7 +33,7 @@
 
                     $query = mysql_query("select * from articles WHERE hood=hood");
                     $query_two = mysql_num_rows($query);
-                    if ($query_two = 1)
+                    if ($query_two)
                     {
 
                             while ($come = mysql_fetch_assoc($query)) {
@@ -71,7 +72,7 @@
                                     </center>
                                 <?php
                             }
-                    }else{
+                    }else if (!$query_two){
                         echo        "Düzenlenecek Makale Henüz Bulunmuyor...";
                     }
             }
