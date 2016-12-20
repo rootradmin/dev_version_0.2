@@ -31,11 +31,12 @@
                                     $sonuc = $say['0'];
                                     ?>
                                     <li><a href="admin.php?selection=index">Anamenu</a></li>
-                                    <li><a href="admin.php?selection=makale">MAKALE</a></li>
+                                    <li><a href="admin.php?selection=makale">Makale</a></li>
                                     <li><a href="admin.php?selection=makale_edit">Makaleyi Düzenle</a></li>
-                                    <li><a href="admin.php?selection=proje">PROJE</a></li>
+                                    <li><a href="admin.php?selection=proje">Proje</a></li>
                                     <li><a href="admin.php?selection=author">Yazar Yönetimi</a></li>
                                     <li><a href="admin.php?selection=status">Onay Bekleyen(<color style="color: red"><?php echo $sonuc;?></color>)</a></li>
+                                    <li><a href="admin.php?selection=message_box">Mesaj Kutusu</a></li>
                                     <li><a href="logout.php">ÇIKIŞ</a></li>
                                 </ul>
                         </section>
@@ -199,6 +200,9 @@
                                    }
                                    else if ($_GET['selection']=="status"){
                                     require   "onayla.php";
+                                   }
+                                   else if ($_GET['selection']=="message_box"){
+                                       require "message_box.php";
                                    }
                                 }
                             ?>

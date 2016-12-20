@@ -10,7 +10,8 @@
                     $del = mysql_query("delete from articles where id='$gelen'");
                     echo "<h1>Makale Başarıyla Silindi !</h1>";
 
-            }else if ($update) //güncelleye basıldıysa güncelleme işlemin yap
+            }
+            else if ($update) //güncelleye basıldıysa güncelleme işlemin yap
             {
 
                     $uphood = $_POST['uphood'];
@@ -25,7 +26,8 @@
 
                     echo "Makale Başarıyle Güncellendi";
 
-            }else if ($_GET["selection"]=="makale_edit") // makale edite basıldıysa burayı göster
+            }
+            else if ($_GET["selection"]=="makale_edit") // makale edite basıldıysa burayı göster
             {
 
                     $query = mysql_query("select * from articles WHERE hood=hood");
